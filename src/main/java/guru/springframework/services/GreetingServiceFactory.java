@@ -6,10 +6,10 @@ public class GreetingServiceFactory {
 
 	public GreetingServiceFactory(GreetingRepository greetingRepository) {
 		this.greetingRepository = greetingRepository;
-	} 
-	
+	}
+
 	public GreetingService createGreetingService(String lang) {
-		switch(lang) {
+		switch (lang) {
 		case "en":
 			return new PrimaryGreetingService(greetingRepository);
 		case "es":

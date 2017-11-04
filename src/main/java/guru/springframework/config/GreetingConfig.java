@@ -16,21 +16,21 @@ public class GreetingConfig {
 	public GreetingServiceFactory getGreetingServiceFactory(GreetingRepository greetingRepository) {
 		return new GreetingServiceFactory(greetingRepository);
 	}
-	
+
 	@Bean
 	@Primary
-	@Profile({"default", "en"})
+	@Profile({ "default", "en" })
 	public GreetingService getGreetingService(GreetingServiceFactory greetingServiceFactory) {
 		return greetingServiceFactory.createGreetingService("en");
 	}
-	
+
 	@Bean
 	@Primary
 	@Profile("es")
 	public GreetingService getSpanishGreetingService(GreetingServiceFactory greetingServiceFactory) {
 		return greetingServiceFactory.createGreetingService("es");
 	}
-	
+
 	@Bean
 	@Primary
 	@Profile("de")

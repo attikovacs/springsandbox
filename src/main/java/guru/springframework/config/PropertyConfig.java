@@ -14,13 +14,13 @@ public class PropertyConfig {
 
 	@Value("${attikovacs.username}")
 	private String username;
-	
+
 	@Value("${attikovacs.password}")
 	private String password;
-	
+
 	@Value("${attikovacs.url}")
 	private String url;
-	
+
 	@Bean
 	public DataSourceBean dataSourceBean() {
 		DataSourceBean dsb = new DataSourceBean();
@@ -29,10 +29,10 @@ public class PropertyConfig {
 		dsb.setUrl(url);
 		return dsb;
 	}
-	
+
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer property() {
 		return new PropertySourcesPlaceholderConfigurer();
 	}
-	
+
 }

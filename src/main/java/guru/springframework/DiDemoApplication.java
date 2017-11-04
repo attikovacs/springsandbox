@@ -18,10 +18,10 @@ public class DiDemoApplication {
 
 		DataSourceBean dsb = ctx.getBean(DataSourceBean.class);
 		System.out.println(dsb.getUsername() + " " + dsb.getPassword() + " " + dsb.getUrl());
-		
+
 		MyController controller = (MyController) ctx.getBean("myController");
 		System.out.println(controller.hello());
-		
+
 		System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
 		System.out.println(ctx.getBean(GetterInjectedController.class).sayHello());
 		System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());

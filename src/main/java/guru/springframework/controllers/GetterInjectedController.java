@@ -10,14 +10,14 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 public class GetterInjectedController {
-    private GreetingService greetingService;
+	private GreetingService greetingService;
 
-    public String sayHello(){
-        return greetingService.sayGreeting();
-    }
+	public String sayHello() {
+		return greetingService.sayGreeting();
+	}
 
-    @Autowired
-    public void setGreetingService(@Qualifier("getterGreetingService") GreetingService greetingService) {
-        this.greetingService = greetingService;
-    }
+	@Autowired
+	public void setGreetingService(@Qualifier("getterGreetingService") GreetingService greetingService) {
+		this.greetingService = greetingService;
+	}
 }
