@@ -4,13 +4,17 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 import guru.springframework.examplebeans.DataSourceBean;
 import guru.springframework.examplebeans.JmsBean;
 
 @Configuration
-@PropertySource({"classpath:datasource.properties", "classpath:jms.properties"})
+@PropertySources({
+	@PropertySource("classpath:datasource.properties"), 
+	@PropertySource("classpath:jms.properties")
+})
 public class PropertyConfig {
 
 	@Value("${attikovacs.username}")
