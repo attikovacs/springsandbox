@@ -1,0 +1,5 @@
+attikovacs:
+  jms:
+    username: JMSatti
+    password: JMSpass
+    url: JMSurl
