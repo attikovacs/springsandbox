@@ -5,6 +5,7 @@ import guru.springframework.controllers.GetterInjectedController;
 import guru.springframework.controllers.MyController;
 import guru.springframework.controllers.PropertyInjectedController;
 import guru.springframework.examplebeans.DataSourceBean;
+import guru.springframework.examplebeans.JmsBean;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,6 +20,9 @@ public class DiDemoApplication {
 		DataSourceBean dsb = ctx.getBean(DataSourceBean.class);
 		System.out.println(dsb.getUsername() + " " + dsb.getPassword() + " " + dsb.getUrl());
 
+		JmsBean jb = ctx.getBean(JmsBean.class);
+		System.out.println(jb.getUsername() + " " + jb.getPassword() + " " + jb.getUrl());
+		
 		MyController controller = (MyController) ctx.getBean("myController");
 		System.out.println(controller.hello());
 

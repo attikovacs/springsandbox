@@ -1,22 +1,18 @@
 package guru.springframework.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.core.env.Environment;
 
 import guru.springframework.examplebeans.DataSourceBean;
+import guru.springframework.examplebeans.JmsBean;
 
 @Configuration
-@PropertySource("classpath:datasource.properties")
+@PropertySource({"classpath:datasource.properties", "classpath:jms.properties"})
 public class PropertyConfig {
 
-	@Autowired
-	private Environment env;
-	
 	@Value("${attikovacs.username}")
 	private String username;
 
@@ -25,14 +21,32 @@ public class PropertyConfig {
 
 	@Value("${attikovacs.url}")
 	private String url;
+	
+	@Value("${attikovacs.jms.username}")
+	private String jmsUsername;
+
+	@Value("${attikovacs.jms.password}")
+	private String jmsPassword;
+
+	@Value("${attikovacs.jms.url}")
+	private String jmsUrl;
 
 	@Bean
 	public DataSourceBean dataSourceBean() {
 		DataSourceBean dsb = new DataSourceBean();
-		dsb.setUsername(env.getProperty("path"));
+		dsb.setUsername(username);
 		dsb.setPassword(password);
 		dsb.setUrl(url);
 		return dsb;
+	}
+	
+	@Bean
+	public JmsBean jmsBean() {
+		JmsBean jb = new JmsBean();
+		jb.setUsername(jmsUsername);
+		jb.setPassword(jmsPassword);
+		jb.setUrl(jmsUrl);
+		return jb;
 	}
 
 	@Bean
