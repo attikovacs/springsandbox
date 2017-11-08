@@ -3,3 +3,13 @@ attikovacs:
     username: JMSatti
     password: JMSpass
     url: JMSurl
+    
+--- # New document starts here
+spring:
+    profiles: de
+    
+attikovacs:
+  jms:
+    username: de-JMSatti
+    password: de-JMSpass
+    url: de-JMSurl
